@@ -1,14 +1,17 @@
 import React from 'react';
-import { FaCircle, FaCheckCircle } from 'react-icons/fa';
+import { FaCheckCircle, FaTimes } from 'react-icons/fa';
+import { BsCircle } from 'react-icons/bs';
 
 const Todo = ({ id, text }) => {
   return (
     <div className='todo'>
       <span className='icon'>
-        <FaCircle />
+        {isCompleted ? <FaCheckCircle /> : <BsCircle />
       </span>
       <span className='input-text'>{text}</span>
-      <button className='delete-btn'>< </button>
+      <button className='delete-btn'>
+        <FaTimes />
+      </button>
     </div>
   );
 };
