@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import TodoList from './TodoList';
+import { BsCircle } from 'react-icons/bs';
 
 const TodoForm = ({ addTodo, setInputValue, inputValue }) => {
   return (
@@ -12,6 +13,7 @@ const TodoForm = ({ addTodo, setInputValue, inputValue }) => {
           onChange={(e) => setInputValue(e.target.value)}
           autoFocus
         />
+        <BsCircle className='circle-todo-form' />
       </form>
     </div>
   );
