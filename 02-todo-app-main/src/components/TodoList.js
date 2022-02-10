@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Todo from './Todo';
+
 const TodoList = ({
   todos,
   setTodos,
@@ -12,7 +13,6 @@ const TodoList = ({
   btns.forEach((btn) => {
     btn.addEventListener('click', () => setStatus(btn.value));
   });
-
   return (
     <div className='todo-list'>
       <div className='todos'>
