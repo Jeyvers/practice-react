@@ -9,12 +9,14 @@ const App = () => {
   const [todos, setTodos] = useState([]);
   const [status, setStatus] = useState('all');
   const [filteredTodos, setFilteredTodos] = useState([]);
+
   useEffect(() => {
     filterHandler();
   }, [status, todos]);
 
   const addTodo = (e) => {
     e.preventDefault();
+
     if (!inputValue || /^\s*$/.test(inputValue)) {
       return;
     }
@@ -39,7 +41,6 @@ const App = () => {
   const deleteTodo = (id) => {
     setTodos(todos.filter((todo) => todo.id !== id));
   };
-
   // Functions
   const filterHandler = () => {
     switch (status) {
@@ -82,3 +83,5 @@ const App = () => {
 };
 
 export default App;
+// Destructure setEditedTodo from todoList to todo
+// editTodo, drag&drop, saveTodos
