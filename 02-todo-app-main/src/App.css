@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap');
+
+:root {
+  --primary-color: hsl(220, 98%, 61%);
+  /* Dark Theme */
+  --body-color: hsl(235, 21%, 11%);
+  --text-color: hsl(234, 39%, 85%);
+  --text-white: white;
+  --text-dark: black;
+
+  --header-color: hsl(236, 33%, 92%);
+
+  --container-color: hsl(235, 24%, 19%);
+  --thrid-dark-color: hsl(234, 11%, 52%);
+  --fourth-dark-color: hsl(233, 14%, 35%);
+  --fifth-dark-color: hsl(237, 14%, 26%);
+  --gradient-fill: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%);
+
+  /* TYPOGRAPHY & FONT */
+  --header-height: 3rem;
+  --light-font-weight: 400;
+  --bold-font-weight: 700;
+  --font-family: 'Josefin Sans', sans-serif;
+
+  /* .5rem =8px, 1rem =16px, 1.5rem =24px ... */
+
+  --big-font-size: 2rem;
+  --h1-font-size: 1.5rem;
+  --h2-font-size: 1.25rem;
+  --h3-font-size: 1.125rem;
+  --normal-font-size: 0.938rem;
+  --small-font-size: 0.813rem;
+  --smaller-font-size: 0.75rem;
+
+  /* Margins Bottom */
+  /* .25rem = 4px, .5rem = 8px, .75rem = 12px ... */
+
+  --m-0-25: 0.25rem;
+  --m-0-5: 0.5rem;
+  --m-0-75: 0.75rem;
+  --m-1: 1rem;
+  --m-1-5: 1.5rem;
+  --m-2: 2rem;
+  --m-2-5: 2.5rem;
+  --m-3: 3rem;
+
+  /* Z INDEX */
+  --z-tooltip: 10;
+  --z-fixed: 100;
+  --z-modal: 1000;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: var(--font-family);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--body-color) url(./images/bg-desktop-dark.jpg) no-repeat;
+  display: grid;
+  place-items: center;
+  color: var(--text-color);
+  font-size: 1rem;
+}
+
+input {
+  border: none;
+  outline: none;
+}
+
+button {
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--thrid-dark-color);
+}
+
+.body {
+  margin-top: var(--m-2);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  width: 400px;
+
+  gap: 20px;
+  padding: 0 3rem;
+  flex-wrap: wrap;
+}
+/* 
+.container > * {
+  flex-basis: 1 1 20em;
+} */
+
+header {
+  display: flex;
+  justify-content: space-between;
+  font-weight: var(--bold-font-weight);
+  color: var(--text-white);
+  word-spacing: 2em;
+}
+.todo-form {
+  position: relative;
+}
+
+input {
+  background: var(--container-color);
+  width: 100%;
+  height: 30px;
+  padding: 23px 40px;
+  border-radius: var(--m-0-5);
+  /* padding-left: 40px; */
+  color: var(--text-white);
+}
+
+input::placeholder {
+  color: var(--text-white);
+}
+
+.circle-todo-form {
+  position: absolute;
+  left: 10px;
+  top: 12px;
+  color: var(--text-white);
+  opacity: 0.3;
+  font-size: var(--h2-font-size);
+}
+
+.todo-list {
+  background: var(--container-color);
+  border-radius: var(--m-0-5);
+  padding: 20px;
+}
+
+.todo {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.delete-btn {
+  font-size: var(--normal-font-size);
+}

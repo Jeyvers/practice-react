@@ -5,13 +5,15 @@ import { BsCircle } from 'react-icons/bs';
 const Todo = ({ id, text, isComplete, deleteTodo, completeTodo }) => {
   return (
     <div className='todo'>
-      <span
-        className={isComplete ? 'icon completed-todo' : 'icon'}
-        onClick={() => completeTodo(id)}
-      >
-        {isComplete ? <FaCheckCircle /> : <BsCircle />}
-      </span>
-      <span className='input-text'>{text}</span>
+      <div className='todo-info'>
+        <span
+          className={isComplete ? 'icon completed-todo' : 'icon'}
+          onClick={() => completeTodo(id)}
+        >
+          {isComplete ? <FaCheckCircle /> : <BsCircle />}
+        </span>
+        <span className='input-text'>{text}</span>
+      </div>
       <button className='delete-btn' onClick={() => deleteTodo(id)}>
         <FaTimes />
       </button>
