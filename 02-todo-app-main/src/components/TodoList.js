@@ -14,33 +14,23 @@ const TodoList = ({
     btn.addEventListener('click', () => setStatus(btn.value));
   });
   return (
-    <div className='todo-list'>
-      <div className='todos'>
-        {filteredTodos.map((todo) => {
-          return (
-            <Todo
-              key={todo.id}
-              {...todo}
-              deleteTodo={deleteTodo}
-              completeTodo={completeTodo}
-            />
-          );
-        })}
-      </div>
-      {todos.length > 0 ? (
+    <>
+      <div className='todo-list'>
+        <div className='todos'>
+          {filteredTodos.map((todo) => {
+            return (
+              <Todo
+                key={todo.id}
+                {...todo}
+                deleteTodo={deleteTodo}
+                completeTodo={completeTodo}
+              />
+            );
+          })}
+        </div>
         <div className='todo-list-footer'>
           <p> {todos.length} items left </p>
-          <div className='toggleBtns'>
-            <button className='toggleBtn' value={'all'}>
-              All
-            </button>
-            <button className='toggleBtn' value={'active'}>
-              Active
-            </button>
-            <button className='toggleBtn' value={'completed'}>
-              Completed
-            </button>
-          </div>
+
           <button
             onClick={() => {
               const newTodos = todos.filter(
@@ -52,10 +42,19 @@ const TodoList = ({
             Clear Completed
           </button>
         </div>
-      ) : (
-        ''
-      )}
-    </div>
+      </div>
+      <div className='toggleBtns'>
+        <button className='toggleBtn' value={'all'}>
+          All
+        </button>
+        <button className='toggleBtn' value={'active'}>
+          Active
+        </button>
+        <button className='toggleBtn' value={'completed'}>
+          Completed
+        </button>
+      </div>
+    </>
   );
 };
 

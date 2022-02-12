@@ -14,8 +14,7 @@
   --thrid-dark-color: hsl(234, 11%, 52%);
   --fourth-dark-color: hsl(233, 14%, 35%);
   --fifth-dark-color: hsl(237, 14%, 26%);
-  --gradient-fill: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%);
-
+  --gradient-fill: hsl(192, 100%, 67%), hsl(280, 87%, 65%);
   /* TYPOGRAPHY & FONT */
   --header-height: 3rem;
   --light-font-weight: 400;
@@ -64,7 +63,7 @@ html {
 body {
   background: var(--body-color) url(./images/bg-desktop-dark.jpg) no-repeat;
   display: grid;
-  place-items: center;
+  /* place-items: center; */
   color: var(--text-color);
   font-size: 1rem;
 }
@@ -81,6 +80,11 @@ button {
   color: var(--thrid-dark-color);
 }
 
+button:hover {
+  color: var(--primary-color);
+  cursor: pointer;
+}
+
 .body {
   margin-top: var(--m-2);
 }
@@ -89,16 +93,11 @@ button {
   display: flex;
   flex-direction: column;
   /* align-items: center; */
-  width: 400px;
-
+  max-width: 600px;
   gap: 20px;
-  padding: 0 3rem;
+  padding: 0 1.5rem;
   flex-wrap: wrap;
 }
-/* 
-.container > * {
-  flex-basis: 1 1 20em;
-} */
 
 header {
   display: flex;
@@ -115,10 +114,10 @@ input {
   background: var(--container-color);
   width: 100%;
   height: 30px;
-  padding: 23px 40px;
+  padding: 23px 45px;
   border-radius: var(--m-0-5);
-  /* padding-left: 40px; */
   color: var(--text-white);
+  font-size: var(--normal-font-size);
 }
 
 input::placeholder {
@@ -127,7 +126,7 @@ input::placeholder {
 
 .circle-todo-form {
   position: absolute;
-  left: 10px;
+  left: 15px;
   top: 12px;
   color: var(--text-white);
   opacity: 0.3;
@@ -137,15 +136,54 @@ input::placeholder {
 .todo-list {
   background: var(--container-color);
   border-radius: var(--m-0-5);
-  padding: 20px;
 }
 
 .todo {
   display: flex;
   width: 100%;
   justify-content: space-between;
+  border-bottom: 2px solid var(--thrid-dark-color);
+  padding: 15px;
+}
+
+.todo-info {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.input-text.completed-todo {
+  color: var(--thrid-dark-color);
+  text-decoration: line-through;
+}
+
+.icon .icon-tick {
+  background: linear-gradient(var(--gradient-fill));
+  color: white;
+  border-radius: 50%;
+}
+
+.icon {
+  font-size: var(--h2-font-size);
 }
 
 .delete-btn {
   font-size: var(--normal-font-size);
+}
+
+.todo-list-footer {
+  padding: 15px 0;
+  color: var(--thrid-dark-color);
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+}
+
+.toggleBtns {
+  display: flex;
+  justify-content: center;
+  background: var(--container-color);
+  gap: 20px;
+  padding: 15px 20px;
+  border-radius: var(--m-0-5);
 }
