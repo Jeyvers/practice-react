@@ -12,7 +12,12 @@ const App = () => {
   const [lightMode, setLightMode] = useState(false);
 
   useEffect(() => {
+    getLocalTodos();
+  }, []);
+
+  useEffect(() => {
     filterHandler();
+    saveLocalTodos();
   }, [status, todos]);
 
   const addTodo = (e) => {
@@ -42,7 +47,7 @@ const App = () => {
   const deleteTodo = (id) => {
     setTodos(todos.filter((todo) => todo.id !== id));
   };
-  // Functions
+
   const filterHandler = () => {
     switch (status) {
       case 'completed':
@@ -54,6 +59,21 @@ const App = () => {
       default:
         setFilteredTodos(todos);
         break;
+    }
+  };
+
+  const saveLocalTodos = () => {
+    localStorage.setItem('todos', JSON.stringify(todos));
+  };
+
+  const getLocalTodos = () => {
+    if (localStorage.getItem('todos') === null) {
+      localStorage.setItem('todos', JSON.stringify([]));
+    } else {
+      let todoLocal = JSON.parse(
+        localStorage.getItem('todos', JSON.stringify('todos'))
+      );
+      setTodos(todoLocal);
     }
   };
 

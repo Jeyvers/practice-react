@@ -12,7 +12,7 @@
   --header-color: hsl(0, 0%, 100%);
 
   --container-color: hsl(235, 24%, 19%);
-  --thrid-dark-color: hsl(234, 11%, 52%);
+  --third-dark-color: hsl(234, 11%, 52%);
   --fourth-dark-color: hsl(233, 14%, 35%);
   --fifth-dark-color: hsl(237, 14%, 26%);
   --gradient-fill: hsl(192, 100%, 67%), hsl(280, 87%, 65%);
@@ -63,17 +63,20 @@ html {
 }
 
 body.light-mode {
+  --body-color: hsl(236, 33%, 92%);
   --container-color: hsl(0, 0%, 98%);
   --text-white: black;
   --text-dark: white;
   --fourth-dark-color: hsl(233, 11%, 84%);
   --text-color: hsl(235, 19%, 35%);
+  background: var(--body-color) url(./images/bg-desktop-light.jpg) no-repeat;
+  background-position-y: -50px;
 }
 
 body {
   background: var(--body-color) url(./images/bg-desktop-dark.jpg) no-repeat;
+  background-position-y: -50px;
   display: grid;
-  /* place-items: center; */
   color: var(--text-color);
   font-size: 1rem;
 }
@@ -81,13 +84,14 @@ body {
 input {
   border: none;
   outline: none;
+  caret-color: var(--primary-color);
 }
 
 button {
   border: none;
   outline: none;
   background: transparent;
-  color: var(--thrid-dark-color);
+  color: var(--third-dark-color);
 }
 
 button:hover {
@@ -114,7 +118,7 @@ header {
   display: flex;
   justify-content: space-between;
   color: var(--header-color);
-  font-size: var(--h3-font-size);
+  font-size: var(--h2-font-size);
 }
 
 header .title {
@@ -163,14 +167,19 @@ input::placeholder {
   display: flex;
   width: 100%;
   justify-content: space-between;
+  align-items: center;
   border-bottom: 2px solid var(--fourth-dark-color);
   padding: 15px;
+  line-height: 1.5rem;
 }
 
 .todo-info {
   display: flex;
   gap: 15px;
   align-items: center;
+  justify-content: center;
+  line-height: 1.5rem;
+  font-size: var(--h2-font-size);
 }
 
 .input-text.completed-todo {
@@ -188,16 +197,16 @@ input::placeholder {
   color: var(--primary-color);
 }
 
-.icon {
+/* .icon {
   font-size: var(--h2-font-size);
-}
+} */
 
 .delete-btn {
   font-size: var(--normal-font-size);
 }
 
 .todo-list-footer {
-  color: var(--thrid-dark-color);
+  color: var(--third-dark-color);
   display: flex;
   justify-content: space-between;
   padding: 15px;
@@ -225,7 +234,7 @@ input::placeholder {
   width: 100%;
   text-align: center;
   padding: 15px;
-  color: var(--thrid-dark-color);
+  color: var(--third-dark-color);
 }
 
 @media screen and (min-width: 600px) {

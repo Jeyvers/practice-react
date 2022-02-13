@@ -1,16 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 // import { FaMoon, FaSun } from 'react-icons/fa';
 import { BsSunFill, BsMoonFill } from 'react-icons/bs';
 
 const Header = ({ lightMode, setLightMode }) => {
   const setLightModeBody = () => {
     setLightMode(!lightMode);
-    if (lightMode) {
-      document.body.classList.add('light-mode');
-    } else {
-      document.body.classList = '';
-    }
   };
+  if (lightMode === true) {
+    console.log(true);
+    document.body.classList.add('light-mode');
+  } else {
+    document.body.classList.remove('light-mode');
+  }
   return (
     <header>
       <span className='title'>TODO</span>
