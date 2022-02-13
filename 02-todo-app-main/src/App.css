@@ -64,6 +64,10 @@ html {
 
 body.light-mode {
   --container-color: hsl(0, 0%, 98%);
+  --text-white: black;
+  --text-dark: white;
+  --fourth-dark-color: hsl(233, 11%, 84%);
+  --text-color: hsl(235, 19%, 35%);
 }
 
 body {
@@ -87,7 +91,7 @@ button {
 }
 
 button:hover {
-  color: var(--primary-color);
+  color: var(--text-white);
   cursor: pointer;
 }
 
@@ -159,7 +163,7 @@ input::placeholder {
   display: flex;
   width: 100%;
   justify-content: space-between;
-  border-bottom: 2px solid var(--thrid-dark-color);
+  border-bottom: 2px solid var(--fourth-dark-color);
   padding: 15px;
 }
 
@@ -170,7 +174,7 @@ input::placeholder {
 }
 
 .input-text.completed-todo {
-  color: var(--thrid-dark-color);
+  color: var(--fourth-dark-color);
   text-decoration: line-through;
 }
 
@@ -181,7 +185,7 @@ input::placeholder {
 }
 
 .todo:hover .icon .icon-circle {
-  color: blue;
+  color: var(--primary-color);
 }
 
 .icon {
@@ -207,6 +211,10 @@ input::placeholder {
   padding: 15px 20px;
   border-radius: var(--m-0-25);
   box-shadow: var(--box-shadow);
+}
+
+.toggleBtn:hover {
+  color: var(--text-white);
 }
 
 .active-status {
@@ -239,9 +247,12 @@ input::placeholder {
 
   .toggleBtns {
     position: relative;
-    top: -67px;
+    top: -53px;
+    left: 70px;
     background: none;
     box-shadow: none;
+    padding: 0;
+    width: 300px;
   }
 
   .todo-footer {

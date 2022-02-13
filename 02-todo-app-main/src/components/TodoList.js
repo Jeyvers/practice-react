@@ -40,6 +40,7 @@ const TodoList = ({
           <p> {todos.length} items left </p>
 
           <button
+            className='clear-completed-btn'
             onClick={() => {
               const newTodos = todos.filter(
                 (todo) => todo.isComplete === false
