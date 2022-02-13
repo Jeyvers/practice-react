@@ -9,6 +9,7 @@ const App = () => {
   const [todos, setTodos] = useState([]);
   const [status, setStatus] = useState('all');
   const [filteredTodos, setFilteredTodos] = useState([]);
+  const [lightMode, setLightMode] = useState(false);
 
   useEffect(() => {
     filterHandler();
@@ -59,7 +60,7 @@ const App = () => {
   return (
     <section className='body'>
       <div className='container'>
-        <Header />
+        <Header setLightMode={setLightMode} lightMode={lightMode} />
         <TodoForm
           inputValue={inputValue}
           setTodos={setTodos}
@@ -73,6 +74,7 @@ const App = () => {
           completeTodo={completeTodo}
           setStatus={setStatus}
           setTodos={setTodos}
+          status={status}
         />
         <div className='todo-footer'>
           <p>Drag and drop to reorder list</p>
@@ -83,5 +85,4 @@ const App = () => {
 };
 
 export default App;
-// Destructure setEditedTodo from todoList to todo
-// editTodo, drag&drop, saveTodos
+// drag&drop, saveTodos

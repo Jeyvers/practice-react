@@ -8,10 +8,18 @@ const TodoList = ({
   completeTodo,
   filteredTodos,
   setStatus,
+  status,
 }) => {
   const btns = document.querySelectorAll('.toggleBtn');
   btns.forEach((btn) => {
-    btn.addEventListener('click', () => setStatus(btn.value));
+    btn.addEventListener('click', () => {
+      setStatus(btn.value);
+    });
+    if (status === btn.value) {
+      btn.classList.add('active-status');
+    } else {
+      btn.classList.remove('active-status');
+    }
   });
   return (
     <>
