@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { FaCheckCircle, FaTimes } from 'react-icons/fa';
+import React from 'react';
+import { FaTimes } from 'react-icons/fa';
 import { BsCircle, BsCheck } from 'react-icons/bs';
 import { Draggable } from 'react-beautiful-dnd';
 

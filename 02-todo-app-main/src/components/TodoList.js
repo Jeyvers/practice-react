@@ -1,7 +1,4 @@
-import React, { useState } from 'react';
 import Todo from './Todo';
-import { DragDropContext } from 'react-beautiful-dnd';
-import { Droppable } from 'react-beautiful-dnd';
 
 const TodoList = ({
   id,

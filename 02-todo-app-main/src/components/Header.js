@@ -1,5 +1,3 @@
-import React, { useEffect } from 'react';
-// import { FaMoon, FaSun } from 'react-icons/fa';
 import { BsSunFill, BsMoonFill } from 'react-icons/bs';
 
 const Header = ({ lightMode, setLightMode }) => {

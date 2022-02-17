@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import TodoList from './TodoList';
+import React from 'react';
 import { BsCircle } from 'react-icons/bs';
 
 const TodoForm = ({ addTodo, setInputValue, inputValue }) => {
