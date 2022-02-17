@@ -5,3 +5,7 @@ Functionalities acheived:
 - Delete todos from the list
 - Filter by all/active/complete todos
 - Clear all completed todos
+- Save todos to local storage
+- Drag and drop todos (Reorder list)
+
+(Todo-List)[https://jeyvers-todo-list.netlify.app/]
