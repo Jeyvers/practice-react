@@ -3,6 +3,8 @@ import './App.css';
 import Header from './components/Header';
 import TodoForm from './components/TodoForm';
 import TodoList from './components/TodoList';
+import { DragDropContext } from 'react-beautiful-dnd';
+import { Droppable } from 'react-beautiful-dnd';
 
 const App = () => {
   const [inputValue, setInputValue] = useState('');
@@ -28,7 +30,11 @@ const App = () => {
     }
     const newTodos = [
       ...todos,
-      { id: new Date().getTime(), text: inputValue, isComplete: false },
+      {
+        id: new Date().getTime().toString(),
+        text: inputValue,
+        isComplete: false,
+      },
     ];
     setTodos(newTodos);
     setInputValue('');
@@ -77,6 +83,27 @@ const App = () => {
     }
   };
 
+  const onDragEnd = (result) => {
+    const { destination, source, draggableId } = result;
+    console.log(destination, source, draggableId);
+    // To reorder elements positions
+    if (!destination) {
+      return;
+    }
+
+    if (
+      destination.droppableId === source.droppableId &&
+      destination.index === source.index
+    ) {
+      return;
+    }
+
+    const items = Array.from(todos);
+    const [reorderedItem] = items.splice(source.index, 1);
+    items.splice(destination.index, 0, reorderedItem);
+    setTodos(items);
+  };
+
   return (
     <section className='body'>
       <div className='container'>
@@ -87,15 +114,25 @@ const App = () => {
           addTodo={addTodo}
           setInputValue={setInputValue}
         />
-        <TodoList
-          todos={todos}
-          filteredTodos={filteredTodos}
-          deleteTodo={deleteTodo}
-          completeTodo={completeTodo}
-          setStatus={setStatus}
-          setTodos={setTodos}
-          status={status}
-        />
+        <DragDropContext onDragEnd={onDragEnd}>
+          <Droppable droppableId='todo-list'>
+            {(provided) => (
+              <TodoList
+                todos={todos}
+                filteredTodos={filteredTodos}
+                deleteTodo={deleteTodo}
+                completeTodo={completeTodo}
+                setStatus={setStatus}
+                setTodos={setTodos}
+                status={status}
+                {...provided.droppableProps}
+                innerRef={provided.innerRef}
+                id='todo-list'
+                placeholder={provided.placeholder}
+              ></TodoList>
+            )}
+          </Droppable>
+        </DragDropContext>
         <div className='todo-footer'>
           <p>Drag and drop to reorder list</p>
         </div>

@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import Todo from './Todo';
+import { DragDropContext } from 'react-beautiful-dnd';
+import { Droppable } from 'react-beautiful-dnd';
 
 const TodoList = ({
+  id,
   todos,
   setTodos,
   deleteTodo,
@@ -9,6 +12,8 @@ const TodoList = ({
   filteredTodos,
   setStatus,
   status,
+  innerRef,
+  placeholder,
 }) => {
   const btns = document.querySelectorAll('.toggleBtn');
   btns.forEach((btn) => {
@@ -21,21 +26,25 @@ const TodoList = ({
       btn.classList.remove('active-status');
     }
   });
+
   return (
     <>
-      <div className='todo-list'>
+      <div className='todo-list' id={id} ref={innerRef}>
         <div className='todos'>
-          {filteredTodos.map((todo) => {
+          {filteredTodos.map((todo, index) => {
             return (
               <Todo
                 key={todo.id}
                 {...todo}
                 deleteTodo={deleteTodo}
                 completeTodo={completeTodo}
-              />
+                index={index}
+              ></Todo>
             );
           })}
+          {placeholder}
         </div>
+
         <div className='todo-list-footer'>
           <p> {todos.length} items left </p>
 

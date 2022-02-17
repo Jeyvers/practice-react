@@ -69,6 +69,8 @@ body.light-mode {
   --text-dark: white;
   --fourth-dark-color: hsl(233, 11%, 84%);
   --text-color: hsl(235, 19%, 35%);
+  --box-shadow: 2px 12px 5px var(--fourth-dark-color);
+
   background: var(--body-color) url(./images/bg-desktop-light.jpg) no-repeat;
   background-position-y: -50px;
 }
@@ -169,8 +171,14 @@ input::placeholder {
   justify-content: space-between;
   align-items: center;
   border-bottom: 2px solid var(--fourth-dark-color);
+  background: var(--container-color);
+
   padding: 15px;
   line-height: 1.5rem;
+}
+
+.todo:hover {
+  cursor: auto;
 }
 
 .todo-info {
@@ -185,6 +193,10 @@ input::placeholder {
 .input-text.completed-todo {
   color: var(--fourth-dark-color);
   text-decoration: line-through;
+}
+
+.icon {
+  cursor: pointer;
 }
 
 .icon .icon-tick {
@@ -267,5 +279,17 @@ input::placeholder {
   .todo-footer {
     margin-top: -45px;
     padding: 5px;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  body.light-mode {
+    background: var(--body-color) url(./images/bg-mobile-light.jpg) no-repeat;
+    /* background-position-y: -50px; */
+  }
+
+  body {
+    background: var(--body-color) url(./images/bg-mobile-dark.jpg) no-repeat;
+    /* background-position-y: -50px; */
   }
 }
