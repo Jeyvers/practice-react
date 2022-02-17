@@ -8,4 +8,5 @@ Functionalities acheived:
 - Save todos to local storage
 - Drag and drop todos (Reorder list)
 
+Link to live site: 
 [Todo-List](https://jeyvers-todo-list.netlify.app/)
