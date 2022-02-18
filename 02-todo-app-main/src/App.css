@@ -78,6 +78,7 @@ body.light-mode {
 body {
   background: var(--body-color) url(./images/bg-desktop-dark.jpg) no-repeat;
   background-position-y: -50px;
+  background-size: 100%;
   display: grid;
   color: var(--text-color);
   font-size: 1rem;
