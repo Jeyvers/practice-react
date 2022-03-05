@@ -1,7 +1,7 @@
-import Navbar from './Components/Navbar';
-import Hero from './Components/Hero';
-import Footer from './Components/Footer';
-import Loading from './Components/Loading';
+import Navbar from './Pages/Navbar';
+import Hero from './Pages/Hero';
+import Footer from './Pages/Footer';
+import Loading from './Pages/Loading';
 import { useGlobalContext } from './context';
 
 function App() {

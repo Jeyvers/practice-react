@@ -13,7 +13,6 @@ const initialState = {
 
 const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
-  const [cart, setCart] = useState([]);
   const [category, setCategory] = useState([]);
 
   const fetchProducts = async () => {
@@ -23,12 +22,17 @@ const AppProvider = ({ children }) => {
     dispatch({ type: 'DISPLAY_PRODUCTS', payload: data });
   };
 
+  const addProduct = (id) => {
+    dispatch({ type: 'ADD_PRODUCT', payload: id });
+    console.log(state.cart);
+  };
+
   useEffect(() => {
     fetchProducts();
   }, []);
 
   return (
-    <AppContext.Provider value={{ cart, ...state }}>
+    <AppContext.Provider value={{ ...state, addProduct }}>
       {children}
     </AppContext.Provider>
   );
