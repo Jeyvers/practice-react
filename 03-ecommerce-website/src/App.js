@@ -3,15 +3,16 @@ import Hero from './Pages/Hero';
 import Footer from './Pages/Footer';
 import Loading from './Pages/Loading';
 import { useGlobalContext } from './context';
+import CartContainer from './Components/CartContainer';
 
 function App() {
   const { loading } = useGlobalContext();
-  console.log(loading);
   if (loading) {
     return <Loading />;
   }
   return (
     <>
+      <CartContainer />
       <Navbar />
       <Hero />
       <Footer />

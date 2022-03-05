@@ -6,7 +6,7 @@ const Product = ({ id, image, price, title, category, description }) => {
   return (
     <div className='product' key={id}>
       <div className='product-image-container'>
-        <img src={image} alt='' className='product-image' />
+        {/* <img src={image} alt='' className='product-image' /> */}
       </div>
       <div className='product-category'>
         <p>{category}</p>
@@ -15,7 +15,7 @@ const Product = ({ id, image, price, title, category, description }) => {
         <p className='product-title'>{title}</p>
         <p className='product-description'>{description}</p>
       </div>
-      <button className='add-btn' onClick={() => addProduct(id)}>
+      <button className='add-btn' datatype={id} onClick={() => addProduct(id)}>
         Add to cart
       </button>
     </div>

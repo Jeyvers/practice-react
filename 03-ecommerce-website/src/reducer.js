@@ -10,6 +10,10 @@ const reducer = (state, action) => {
     const newCart = [...tempCart, { newProduct, amount: 1 }];
     return { ...state, cart: newCart };
   }
+
+  if (action.type === 'UPDATE_AMOUNT') {
+    return { ...state, amount: state.cart.length };
+  }
   //   throw new Error('no matching action type');
 };
 

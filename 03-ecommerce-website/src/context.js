@@ -14,22 +14,30 @@ const initialState = {
 const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const [category, setCategory] = useState([]);
+  const [cartTotal, setCartTotal] = useState(0);
 
   const fetchProducts = async () => {
     const response = await fetch(url);
     const data = await response.json();
-    console.log(data);
+
     dispatch({ type: 'DISPLAY_PRODUCTS', payload: data });
   };
 
   const addProduct = (id) => {
     dispatch({ type: 'ADD_PRODUCT', payload: id });
-    console.log(state.cart);
+  };
+
+  const updateTotal = () => {
+    dispatch({ type: 'UPDATE_AMOUNT' });
   };
 
   useEffect(() => {
     fetchProducts();
   }, []);
+
+  useEffect(() => {
+    updateTotal();
+  }, [state.cart]);
 
   return (
     <AppContext.Provider value={{ ...state, addProduct }}>
