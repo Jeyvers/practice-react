@@ -19,7 +19,6 @@ const AppProvider = ({ children }) => {
   const fetchProducts = async () => {
     const response = await fetch(url);
     const data = await response.json();
-
     dispatch({ type: 'DISPLAY_PRODUCTS', payload: data });
   };
 
@@ -28,7 +27,15 @@ const AppProvider = ({ children }) => {
   };
 
   const updateTotal = () => {
-    dispatch({ type: 'UPDATE_AMOUNT' });
+    dispatch({ type: 'UPDATE_TOTAL' });
+  };
+
+  const increaseAmount = (id) => {
+    dispatch({ type: 'INCREASE_AMOUNT', payload: id });
+  };
+
+  const decreaseAmount = (id) => {
+    dispatch({ type: 'DECREASE_AMOUNT', payload: id });
   };
 
   useEffect(() => {
@@ -40,7 +47,9 @@ const AppProvider = ({ children }) => {
   }, [state.cart]);
 
   return (
-    <AppContext.Provider value={{ ...state, addProduct }}>
+    <AppContext.Provider
+      value={{ ...state, addProduct, increaseAmount, decreaseAmount }}
+    >
       {children}
     </AppContext.Provider>
   );

@@ -3,12 +3,22 @@ import { useGlobalContext } from '../context';
 import Product from '../Components/Product';
 
 const Hero = () => {
-  const { products } = useGlobalContext();
-  console.log(products);
+  const { products, cart } = useGlobalContext();
+
   return (
     <div className='products'>
       {products.map((product) => {
-        return <Product key={product.id} {...product} />;
+        const [inCart] = cart.filter(
+          (cartItem) => parseInt(cartItem.id) === parseInt(product.id)
+        );
+
+        return (
+          <Product
+            key={product.id}
+            {...product}
+            buttonState={inCart ? true : false}
+          />
+        );
       })}
     </div>
   );

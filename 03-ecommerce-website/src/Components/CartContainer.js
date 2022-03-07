@@ -1,5 +1,5 @@
 import React from 'react';
-import Cart from './Cart';
+import CartItem from './CartItem.js';
 import { useGlobalContext } from '../context';
 
 const CartContainer = () => {
@@ -8,7 +8,7 @@ const CartContainer = () => {
     <section className='cart-container'>
       <div className='cart'>
         {cart.map((cartItem) => {
-          return <Cart key={cartItem.id} />;
+          return <CartItem key={cartItem.id} {...cartItem} />;
         })}
       </div>
     </section>

@@ -1,8 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useGlobalContext } from '../context';
 
-const Product = ({ id, image, price, title, category, description }) => {
-  const { addProduct } = useGlobalContext();
+const Product = ({
+  id,
+  image,
+  price,
+  title,
+  category,
+  description,
+  buttonState,
+}) => {
+  const { addProduct, cart } = useGlobalContext();
+  // const [buttonState, setButtonState] = useState(false);
+  // console.log(cart);
+  // console.log(id);
+
+  // console.log('IfinCart', inCart);
+  // if (inCart !== undefined) {
+  //   setButtonState(true);
+  //   return;
+  // }
+
   return (
     <div className='product' key={id}>
       <div className='product-image-container'>
@@ -15,8 +33,14 @@ const Product = ({ id, image, price, title, category, description }) => {
         <p className='product-title'>{title}</p>
         <p className='product-description'>{description}</p>
       </div>
-      <button className='add-btn' datatype={id} onClick={() => addProduct(id)}>
-        Add to cart
+      <button
+        className='add-btn'
+        unique={id}
+        value={id}
+        disabled={buttonState}
+        onClick={() => addProduct(id)}
+      >
+        {buttonState ? 'In cart' : 'Add to cart'}
       </button>
     </div>
   );
