@@ -45,6 +45,17 @@ const reducer = (state, action) => {
     return { ...state, cart: newCart };
   }
 
+  if (action.type === 'DELETE_ITEM') {
+    let newCart = state.cart.filter(
+      (cartItem) => cartItem.id !== action.payload
+    );
+    return { ...state, cart: newCart };
+  }
+
+  if (action.type === 'CLEAR_CART') {
+    return { ...state, cart: [] };
+  }
+
   //   throw new Error('no matching action type');
 };
 

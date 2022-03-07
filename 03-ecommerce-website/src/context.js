@@ -38,6 +38,14 @@ const AppProvider = ({ children }) => {
     dispatch({ type: 'DECREASE_AMOUNT', payload: id });
   };
 
+  const deleteItem = (id) => {
+    dispatch({ type: 'DELETE_ITEM', payload: id });
+  };
+
+  const clearCart = () => {
+    dispatch({ type: 'CLEAR_CART' });
+  };
+
   useEffect(() => {
     fetchProducts();
   }, []);
@@ -48,7 +56,14 @@ const AppProvider = ({ children }) => {
 
   return (
     <AppContext.Provider
-      value={{ ...state, addProduct, increaseAmount, decreaseAmount }}
+      value={{
+        ...state,
+        addProduct,
+        increaseAmount,
+        decreaseAmount,
+        deleteItem,
+        clearCart,
+      }}
     >
       {children}
     </AppContext.Provider>

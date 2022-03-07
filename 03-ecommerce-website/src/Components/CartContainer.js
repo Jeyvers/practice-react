@@ -3,7 +3,7 @@ import CartItem from './CartItem.js';
 import { useGlobalContext } from '../context';
 
 const CartContainer = () => {
-  const { cart } = useGlobalContext();
+  const { cart, clearCart } = useGlobalContext();
   return (
     <section className='cart-container'>
       <div className='cart'>
@@ -11,6 +11,9 @@ const CartContainer = () => {
           return <CartItem key={cartItem.id} {...cartItem} />;
         })}
       </div>
+      <button className='clear-cart' onClick={() => clearCart()}>
+        Clear Cart
+      </button>
     </section>
   );
 };
