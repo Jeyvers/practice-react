@@ -13,6 +13,7 @@ const initialState = {
 
 const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
+  const [catergories, setCategories] = useState([]);
   const [category, setCategory] = useState([]);
   const [cartTotal, setCartTotal] = useState(0);
 

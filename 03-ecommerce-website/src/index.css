@@ -3,8 +3,15 @@
   margin: 0;
   box-sizing: border-box;
 }
+
 :root {
-  --primary-color: hsl(286, 95%, 38%);
+  --primary-color: hsl(226, 97%, 45%);
+  --first-color: hsl(226, 97%, 35%);
+}
+
+.loader.container {
+  overflow: hidden;
+  max-width: 90vw;
 }
 
 .loader,
@@ -16,11 +23,12 @@
   width: 1em;
   height: 4em;
 }
+
 .loader {
   color: var(--primary-color);
   text-indent: -9999em;
   margin: 88px auto;
-  margin-top: 20rem;
+  margin-top: 15rem;
   position: relative;
   font-size: 3rem;
   -webkit-transform: translateZ(0);
@@ -29,20 +37,24 @@
   -webkit-animation-delay: -0.16s;
   animation-delay: -0.16s;
 }
+
 .loader:before,
 .loader:after {
   position: absolute;
   top: 0;
   content: '';
 }
+
 .loader:before {
   left: -1.5em;
   -webkit-animation-delay: -0.32s;
   animation-delay: -0.32s;
 }
+
 .loader:after {
   left: 1.5em;
 }
+
 @-webkit-keyframes load1 {
   0%,
   80%,
@@ -55,6 +67,7 @@
     height: 5em;
   }
 }
+
 @keyframes load1 {
   0%,
   80%,
