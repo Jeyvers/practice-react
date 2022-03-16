@@ -11,15 +11,6 @@ const Product = ({
   buttonState,
 }) => {
   const { addProduct, cart } = useGlobalContext();
-  // const [buttonState, setButtonState] = useState(false);
-  // console.log(cart);
-  // console.log(id);
-
-  // console.log('IfinCart', inCart);
-  // if (inCart !== undefined) {
-  //   setButtonState(true);
-  //   return;
-  // }
 
   return (
     <div className='product' key={id}>

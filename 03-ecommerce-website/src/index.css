@@ -11,6 +11,7 @@
 :root {
   --primary-color: hsl(226, 97%, 45%);
   --first-color: hsl(226, 97%, 35%);
+  --first-color-alt: hsl(226, 20%, 97%);
   --dark-color: hsl(0, 0%, 13%);
   --light-dark-color: hsl(0, 0%, 30%);
   --white-color: hsl(0, 0%, 100%);
@@ -31,6 +32,7 @@
 
 body {
   color: var(--dark-color);
+  background: var(--first-color-alt);
 }
 
 /* Utitlities */
@@ -45,10 +47,16 @@ a {
 
 .container {
   width: 90vw;
-  margin: 1rem auto;
+  margin: auto;
 }
 
 /* Navbar Component */
+
+header {
+  background: var(--white-color);
+  height: 60px;
+  display: grid;
+}
 
 nav {
   position: relative;
@@ -85,20 +93,8 @@ nav ul {
   border-radius: 2rem;
   padding: 3rem 2rem;
   box-shadow: 0 0 1em rgba(0, 0, 0, 0.2);
-  /* transform: scale(0); */
-  animation: popUl 3s ease-in-out;
-
   /* Hide Ul on small devices */
   visibility: hidden;
-}
-
-@keyframes popUl {
-  from {
-    width: 50vw;
-  }
-  to {
-    width: 70vw;
-  }
 }
 
 nav ul li {
@@ -137,4 +133,13 @@ nav ul li a:hover {
 
 .visible {
   visibility: visible;
+}
+
+/* Hero Section */
+.products {
+  margin: 1rem auto;
+}
+
+.product {
+  padding: var(--gap);
 }

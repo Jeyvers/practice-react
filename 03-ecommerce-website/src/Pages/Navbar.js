@@ -8,8 +8,8 @@ const Navbar = () => {
   const { cart, amount } = useGlobalContext();
   const ulContainer = useRef(null);
   return (
-    <header className='container'>
-      <nav>
+    <header>
+      <nav className='container'>
         <p className='title'>Deseo</p>
         <div className='sub-nav'>
           <ul ref={ulContainer}>

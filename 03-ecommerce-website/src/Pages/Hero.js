@@ -6,7 +6,7 @@ const Hero = () => {
   const { products, cart } = useGlobalContext();
 
   return (
-    <div className='products'>
+    <div className='products container'>
       {products.map((product) => {
         const [inCart] = cart.filter(
           (cartItem) => parseInt(cartItem.id) === parseInt(product.id)
