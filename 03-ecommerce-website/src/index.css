@@ -291,7 +291,7 @@ position: relative;
   overflow-y: scroll;
   overflow-x: hidden;
   padding: 2rem 0;
-  transition: right 1s ease-in;
+  transition: right 500ms ease-in;
 }
 
 .cart-envelope.show {
@@ -386,6 +386,33 @@ footer {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+  text-align: center;
+  background: var(--first-color);
+  color: var(--text-white-color);
+  padding: 2rem;
+}
+
+footer > * {
+  padding: 1rem;
+}
+
+footer div {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+}
+
+footer div > * {
+  padding: 1rem;
+}
+
+footer div p a {
+  color: var(--text-white-color);
+  font-weight: bold;
+}
+
+footer span {
+  opacity: 0.8;
 }
 
 @media screen and (min-width: 830px) {
@@ -418,5 +445,15 @@ footer {
 
   .cart-icon span {
     right: -7px;
+  }
+
+  footer div {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  footer div > * {
+    border-right: 1px solid var(--white-color);
   }
 }
