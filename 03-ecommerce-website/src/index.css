@@ -196,7 +196,7 @@ nav ul li a:hover {
 .products {
   display: flex;
   flex-wrap: wrap;
-  margin: 7rem auto;
+  margin: 9rem auto;
 }
 
 .products > * {
@@ -409,6 +409,23 @@ footer div > * {
 footer div p a {
   color: var(--text-white-color);
   font-weight: bold;
+  opacity: 0.7;
+}
+
+footer div p a:hover {
+  opacity: 1;
+}
+
+.social-media {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  cursor: pointer;
+  font-size: var(--large-font-size);
+}
+
+.social-media a {
+  color: var(--text-white-color);
 }
 
 footer span {
@@ -453,7 +470,7 @@ footer span {
     justify-content: center;
   }
 
-  footer div > * {
+  footer .info > * {
     border-right: 1px solid var(--white-color);
   }
 }
