@@ -10,7 +10,7 @@ const Navbar = () => {
   return (
     <header>
       <nav className='container'>
-        <p className='title'>Deseo</p>
+        <p className='title'>accessories</p>
         <div className='sub-nav'>
           <ul ref={ulContainer}>
             <span
@@ -33,7 +33,14 @@ const Navbar = () => {
             <li>
               <a href='#'> Jewelry</a>
             </li>
+            <li>
+              <a href='#'> Electronics</a>
+            </li>
           </ul>
+          <p className='cart-icon'>
+            <span>{amount}</span>
+            <BsCartPlusFill />
+          </p>
           <span
             className='btn-bars'
             onClick={() => {
@@ -42,10 +49,6 @@ const Navbar = () => {
           >
             <FaBars />
           </span>
-          <p className='cart-icon'>
-            <span>{amount}</span>
-            <BsCartPlusFill />
-          </p>
         </div>
       </nav>
     </header>

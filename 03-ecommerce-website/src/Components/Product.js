@@ -11,23 +11,36 @@ const Product = ({
   buttonState,
 }) => {
   const { addProduct, cart } = useGlobalContext();
+  const [viewDetails, setViewDetails] = useState(false);
 
   return (
     <div className='product' key={id}>
-      <div className='product-image-container'>
-        {/* <img src={image} alt='' className='product-image' /> */}
-      </div>
-      <div className='product-category'>
-        <p>{category}</p>
-      </div>
-      <div className='product-information'>
-        <p className='product-title'>{title}</p>
-        <p className='product-description'>{description}</p>
+      <div>
+        <div className='product-category'>
+          <p>{category}</p>
+        </div>
+        <div className='product-image-container'>
+          <img src={image} alt='' className='product-image' />
+        </div>
+
+        <div
+          className='product-information'
+          onClick={() => setViewDetails(!viewDetails)}
+        >
+          <p className='product-title'>
+            {viewDetails ? title : title.substring(0, 27) + '...'}
+          </p>
+          <p className='product-description'>
+            {/* {description} */}
+            {viewDetails ? description : description.substring(0, 137) + '...'}
+          </p>
+        </div>
+        <p className='product-price'>
+          Price: <span>${price} </span>
+        </p>
       </div>
       <button
-        className='add-btn'
-        unique={id}
-        value={id}
+        className={buttonState ? 'add-btn disabled' : 'add-btn'}
         disabled={buttonState}
         onClick={() => addProduct(id)}
       >

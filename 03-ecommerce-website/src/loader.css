@@ -16,7 +16,7 @@
 }
 
 .loader {
-  color: var(--primary-color);
+  color: var(--first-color);
   text-indent: -9999em;
   margin: 88px auto;
   margin-top: 15rem;
