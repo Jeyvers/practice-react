@@ -5,7 +5,7 @@ import { FaTimes, FaBars } from 'react-icons/fa';
 import { useGlobalContext } from '../context';
 
 const Navbar = () => {
-  const { cart, amount } = useGlobalContext();
+  const { cart, amount, addCartEnvelopeClass } = useGlobalContext();
   const ulContainer = useRef(null);
   return (
     <header>
@@ -37,10 +37,17 @@ const Navbar = () => {
               <a href='#'> Electronics</a>
             </li>
           </ul>
-          <p className='cart-icon'>
-            <span>{amount}</span>
-            <BsCartPlusFill />
-          </p>
+        </div>
+        <div className='icons'>
+          <div
+            className='cart-icon-area'
+            onClick={() => addCartEnvelopeClass()}
+          >
+            <p className='cart-icon'>
+              <span>{amount}</span>
+              <BsCartPlusFill />
+            </p>
+          </div>
           <span
             className='btn-bars'
             onClick={() => {

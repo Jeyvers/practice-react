@@ -1,4 +1,10 @@
-import React, { useState, useContext, useReducer, useEffect } from 'react';
+import React, {
+  useState,
+  useContext,
+  useReducer,
+  useEffect,
+  useRef,
+} from 'react';
 import reducer from './reducer';
 
 const url = 'https://fakestoreapi.com/products';
@@ -16,6 +22,7 @@ const AppProvider = ({ children }) => {
   const [catergories, setCategories] = useState([]);
   const [category, setCategory] = useState([]);
   const [cartTotal, setCartTotal] = useState(0);
+  const cartEnvelope = useRef(null);
 
   const fetchProducts = async () => {
     const response = await fetch(url);
@@ -47,6 +54,13 @@ const AppProvider = ({ children }) => {
     dispatch({ type: 'CLEAR_CART' });
   };
 
+  const addCartEnvelopeClass = () => {
+    let cartEnvelopeClassList = cartEnvelope.current.classList;
+    if (cartEnvelopeClassList.contains('show')) {
+      return;
+    } else cartEnvelopeClassList.add('show');
+  };
+
   useEffect(() => {
     fetchProducts();
   }, []);
@@ -64,6 +78,8 @@ const AppProvider = ({ children }) => {
         decreaseAmount,
         deleteItem,
         clearCart,
+        addCartEnvelopeClass,
+        cartEnvelope,
       }}
     >
       {children}

@@ -13,7 +13,7 @@ function App() {
   return (
     <>
       <Navbar />
-      {/* <CartContainer /> */}
+      <CartContainer />
       <Hero />
       <Footer />
     </>

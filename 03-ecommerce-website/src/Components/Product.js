@@ -32,11 +32,11 @@ const Product = ({
           </p>
           <p className='product-description'>
             {/* {description} */}
-            {viewDetails ? description : description.substring(0, 137) + '...'}
+            {viewDetails ? description : description.substring(0, 100) + '...'}
           </p>
         </div>
         <p className='product-price'>
-          Price: <span>${price} </span>
+          Price: <span> ${price} </span>
         </p>
       </div>
       <button
