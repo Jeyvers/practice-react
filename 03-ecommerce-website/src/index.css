@@ -80,6 +80,7 @@ header {
   top: 0;
   left: 0;
   right: 0;
+  z-index: 50;
   box-shadow: var(--box-shadow);
 }
 
@@ -117,7 +118,7 @@ nav ul {
   background: var(--first-color);
   color: var(--text-white-color);
   border-radius: 2rem;
-  /* padding: 3rem 2rem; */
+  padding: 3rem 2rem;
   visibility: hidden;
 }
 
@@ -142,8 +143,8 @@ nav ul li a:hover {
   position: absolute;
   top: 1rem;
   right: 1.5rem;
-  opacity: 0.3;
-  font-size: var(--semi-big-font-size);
+  opacity: 0.6;
+  font-size: var(--big-font-size);
   cursor: pointer;
   padding: 5px;
 }
@@ -281,7 +282,7 @@ position: relative;
   position: fixed;
   top: 0;
   right: -600px;
-  z-index: 20;
+  z-index: 100;
   height: 100%;
   width: 100%;
   max-width: 600px;
@@ -320,7 +321,7 @@ position: relative;
   background: var(--white-color);
   width: 90%;
   border-radius: 1rem;
-  padding: 2rem;
+  padding: 2rem 3rem;
   gap: 1rem;
   box-shadow: var(--box-shadow-second);
 }
@@ -426,6 +427,12 @@ footer div p a:hover {
 
 .social-media a {
   color: var(--text-white-color);
+  opacity: 0.7;
+}
+
+.social-media a:hover {
+  opacity: 1;
+  transform: scale(1.2);
 }
 
 footer span {
