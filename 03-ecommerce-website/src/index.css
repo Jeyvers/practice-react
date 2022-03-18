@@ -70,8 +70,13 @@ img {
 
 header {
   background: var(--white-color);
-  height: 60px;
+  height: 70px;
   display: grid;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  box-shadow: var(--box-shadow);
 }
 
 nav {
@@ -146,15 +151,33 @@ nav ul li a:hover {
   padding: 10px;
 }
 
+.cart-icon span {
+  position: absolute;
+  top: -5px;
+  right: 45px;
+  z-index: 10;
+  background: var(--first-color);
+  color: var(--text-white-color);
+  padding: 3px 7px;
+  font-size: var(--normal-font-size);
+  border-radius: 0.3rem;
+}
+
+.cart-icon,
+.btn-bars {
+  font-size: var(--big-font-size);
+}
+
 .visible {
   visibility: visible;
 }
 
-/* Hero Section */
+/* Hero Component */
+
 .products {
   display: flex;
   flex-wrap: wrap;
-  margin: 3rem auto;
+  margin: 7rem auto;
 }
 
 .products > * {
@@ -162,7 +185,7 @@ nav ul li a:hover {
 }
 
 .product {
-  margin: 1rem;
+  margin: 2rem 1rem;
   padding: 2em;
   gap: var(--gap);
   background: var(--white-color);
@@ -175,7 +198,6 @@ nav ul li a:hover {
 .product .add-btn {
   width: 100%;
   padding: 1rem;
-  /* margin: 1rem 0; */
   border-radius: 1rem;
   font-weight: var(--bold-font-weight);
   color: var(--text-white-color);
@@ -216,4 +238,18 @@ nav ul li a:hover {
   border-radius: 1rem;
   text-align: center;
   font-weight: bold;
+}
+
+/* CartContainer Component */
+
+.cart-container {
+  position: relative;
+}
+
+.cart-envelope {
+  position: fixed;
+  top: 0;
+  z-index: 20;
+  padding: 2rem;
+  background-color: var(--first-color-alt);
 }

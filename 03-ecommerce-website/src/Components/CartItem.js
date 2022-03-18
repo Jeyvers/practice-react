@@ -1,6 +1,10 @@
 import React from 'react';
 import { useGlobalContext } from '../context';
-import { AiFillMinusCircle, AiFillPlusCircle } from 'react-icons/ai';
+import {
+  AiFillMinusCircle,
+  AiFillPlusCircle,
+  AiFillDelete,
+} from 'react-icons/ai';
 
 const Cart = ({ id, image, title, price, amount }) => {
   const { increaseAmount, decreaseAmount, deleteItem } = useGlobalContext();
@@ -23,7 +27,7 @@ const Cart = ({ id, image, title, price, amount }) => {
         </span>
       </div>
       <div className='delete-btn' onClick={() => deleteItem(id)}>
-        Del
+        <AiFillDelete />
       </div>
     </div>
   );

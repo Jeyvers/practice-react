@@ -12,8 +12,8 @@ function App() {
   }
   return (
     <>
-      {/* <CartContainer /> */}
       <Navbar />
+      {/* <CartContainer /> */}
       <Hero />
       <Footer />
     </>
