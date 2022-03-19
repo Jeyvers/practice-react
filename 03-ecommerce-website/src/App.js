@@ -4,17 +4,25 @@ import Footer from './Pages/Footer';
 import Loading from './Pages/Loading';
 import { useGlobalContext } from './context';
 import CartContainer from './Components/CartContainer';
+import SemiLoading from './Pages/SemiLoading';
 
 function App() {
-  const { loading } = useGlobalContext();
+  const { loading, semiLoading } = useGlobalContext();
   if (loading) {
     return <Loading />;
   }
+
   return (
     <>
       <Navbar />
-      <CartContainer />
-      <Hero />
+      {semiLoading ? (
+        <SemiLoading />
+      ) : (
+        <>
+          <CartContainer />
+          <Hero />
+        </>
+      )}
       <Footer />
     </>
   );

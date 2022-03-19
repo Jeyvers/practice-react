@@ -18,6 +18,7 @@ const initialState = {
 
 const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
+  const [semiLoading, setSemiLoading] = useState(false);
   const [categories, setCategories] = useState([]);
   const [category, setCategory] = useState('');
   const [cartTotal, setCartTotal] = useState(0);
@@ -25,12 +26,25 @@ const AppProvider = ({ children }) => {
   const url = `https://fakestoreapi.com/products/${
     category ? 'category/' + category : ''
   }`;
-  // category/${category}
+
+  // const setLoadingTrue = () => {
+  //   console.log('setLoadingTrue function is running');
+  //   dispatch({ type: 'SET_LOADING' });
+  // };
+
+  const getCategories = async () => {
+    const response = await fetch(
+      'https://fakestoreapi.com/products/categories'
+    );
+    const categories = await response.json();
+    setCategories(categories);
+  };
 
   const fetchProducts = async () => {
+    setSemiLoading(true);
     const response = await fetch(url);
     const data = await response.json();
-    dispatch({ type: 'DISPLAY_PRODUCTS', payload: data });
+    dispatch({ type: 'DISPLAY_PRODUCTS', payload: { data, setSemiLoading } });
   };
 
   const addProduct = (id) => {
@@ -64,9 +78,20 @@ const AppProvider = ({ children }) => {
     } else cartEnvelopeClassList.add('show');
   };
 
+  const runFunctions = () => {
+    fetchProducts();
+    getCategories();
+  };
+
+  // getCategories();
+  useEffect(() => {
+    // fetchProducts();
+    runFunctions();
+  }, []);
+
   useEffect(() => {
     fetchProducts();
-  }, []);
+  }, [category]);
 
   useEffect(() => {
     updateTotal();
@@ -76,6 +101,9 @@ const AppProvider = ({ children }) => {
     <AppContext.Provider
       value={{
         ...state,
+        categories,
+        cartEnvelope,
+        semiLoading,
         setCategory,
         addProduct,
         increaseAmount,
@@ -83,7 +111,6 @@ const AppProvider = ({ children }) => {
         deleteItem,
         clearCart,
         addCartEnvelopeClass,
-        cartEnvelope,
       }}
     >
       {children}

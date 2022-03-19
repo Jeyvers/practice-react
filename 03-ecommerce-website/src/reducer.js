@@ -1,6 +1,11 @@
 const reducer = (state, action) => {
+  // if (action.type === 'SET_LOADING') {
+  //   return { ...state, loading: true };
+  // }
   if (action.type === 'DISPLAY_PRODUCTS') {
-    return { ...state, products: action.payload, loading: false };
+    console.log('Loading is false');
+    action.payload.setSemiLoading(false);
+    return { ...state, products: action.payload.data, loading: false };
   }
 
   if (action.type === 'ADD_PRODUCT') {

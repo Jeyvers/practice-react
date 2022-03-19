@@ -1,4 +1,5 @@
-@import url('loader.css');
+@import url('css/loader.css');
+@import url('css/semiLoader.css');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Pacifico&display=swap');
 
 * {
@@ -132,6 +133,7 @@ nav ul li a {
   opacity: 0.8;
   color: var(--text-white-color);
   font-weight: bold;
+  text-transform: capitalize;
 }
 
 nav ul li a:hover {
@@ -144,7 +146,7 @@ nav ul li a:hover {
   top: 1rem;
   right: 1.5rem;
   opacity: 0.6;
-  font-size: var(--big-font-size);
+  font-size: var(--semi-big-font-size);
   cursor: pointer;
   padding: 5px;
 }
@@ -298,9 +300,12 @@ position: relative;
   right: 0;
 }
 
-.cart-envelope h1 {
+.heading {
   margin: 1rem auto 0;
-  padding: 1rem;
+  padding: 1.5rem 2rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
 .cart {
@@ -381,12 +386,24 @@ position: relative;
   font-weight: var(--bold-font-weight);
 }
 
-.clear-cart {
+.checkout {
   background: var(--first-color);
   color: var(--text-white-color);
   font-weight: bold;
   padding: 1rem;
   width: 70%;
+}
+
+.clear-cart {
+  background: none;
+  color: black;
+  font-weight: bold;
+  padding: 0.5rem;
+}
+
+.checkout:hover,
+.clear-cart:hover {
+  transform: scale(0.97);
 }
 
 footer {

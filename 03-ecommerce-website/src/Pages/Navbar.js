@@ -1,42 +1,20 @@
 import React, { useRef } from 'react';
-import { BsCartPlusFill, BsTi } from 'react-icons/bs';
-import { FaTimes, FaBars } from 'react-icons/fa';
+import { BsCartPlusFill } from 'react-icons/bs';
+import { FaBars } from 'react-icons/fa';
+import Ul from '../Components/Ul';
 
 import { useGlobalContext } from '../context';
 
 const Navbar = () => {
-  const { cart, amount, addCartEnvelopeClass } = useGlobalContext();
+  const { amount, addCartEnvelopeClass } = useGlobalContext();
   const ulContainer = useRef(null);
+
   return (
     <header>
       <nav className='container'>
         <p className='title'>accessories</p>
         <div className='sub-nav'>
-          <ul ref={ulContainer}>
-            <span
-              className='close-btn'
-              onClick={() => {
-                ulContainer.current.classList.remove('visible');
-              }}
-            >
-              <FaTimes />
-            </span>
-            <li>
-              <a href='#'> Home </a>
-            </li>
-            <li>
-              <a href='#'> Men</a>
-            </li>
-            <li>
-              <a href='#'> Women</a>
-            </li>
-            <li>
-              <a href='#'> Jewelry</a>
-            </li>
-            <li>
-              <a href='#'> Electronics</a>
-            </li>
-          </ul>
+          <Ul ulContainer={ulContainer} />
         </div>
         <div className='icons'>
           <div

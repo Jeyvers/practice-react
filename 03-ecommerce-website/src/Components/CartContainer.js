@@ -16,7 +16,12 @@ const CartContainer = () => {
           >
             <FaTimes />
           </span>
-          <h1>Your Cart</h1>
+          <div className='heading'>
+            <h1>Your Cart</h1>
+            <button className='clear-cart' onClick={() => clearCart()}>
+              Clear Cart
+            </button>
+          </div>
           <div className='cart'>
             {cart.length < 1 ? (
               <p>Your cart is empty</p>
@@ -33,8 +38,8 @@ const CartContainer = () => {
             Total: <span>{total}</span>
           </p>
 
-          <button className='clear-cart' onClick={() => clearCart()}>
-            Clear Cart
+          <button className='checkout' disabled>
+            Checkout
           </button>
         </div>
       </div>

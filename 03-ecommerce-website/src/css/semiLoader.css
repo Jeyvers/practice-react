@@ -1,0 +1,40 @@
+/* SemiLoading Component */
+
+.semi-loader {
+  margin-top: 10rem;
+  margin-bottom: 5rem;
+}
+
+.bouncing-loader {
+  display: flex;
+  justify-content: center;
+}
+
+.bouncing-loader > span {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  margin: 3rem 0.2rem;
+  background-color: var(--first-color);
+  border-radius: 50%;
+  animation: bouncing-loader 0.6s infinite alternate;
+}
+
+.bouncing-loader > span:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.bouncing-loader > span:nth-child(2) {
+  animation-delay: 1s;
+}
+
+.bouncing-loader > span:nth-child(3) {
+  animation-delay: 2s;
+}
+
+@keyframes bouncing-loader {
+  to {
+    opacity: 0.1;
+    transform: translate3d(0, -16px, 0);
+  }
+}
