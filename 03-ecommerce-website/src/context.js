@@ -7,7 +7,6 @@ import React, {
 } from 'react';
 import reducer from './reducer';
 
-const url = 'https://fakestoreapi.com/products';
 const AppContext = React.createContext();
 const initialState = {
   loading: true,
@@ -19,10 +18,14 @@ const initialState = {
 
 const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
-  const [catergories, setCategories] = useState([]);
-  const [category, setCategory] = useState([]);
+  const [categories, setCategories] = useState([]);
+  const [category, setCategory] = useState('');
   const [cartTotal, setCartTotal] = useState(0);
   const cartEnvelope = useRef(null);
+  const url = `https://fakestoreapi.com/products/${
+    category ? 'category/' + category : ''
+  }`;
+  // category/${category}
 
   const fetchProducts = async () => {
     const response = await fetch(url);
@@ -73,6 +76,7 @@ const AppProvider = ({ children }) => {
     <AppContext.Provider
       value={{
         ...state,
+        setCategory,
         addProduct,
         increaseAmount,
         decreaseAmount,

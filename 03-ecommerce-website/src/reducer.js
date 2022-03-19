@@ -13,12 +13,16 @@ const reducer = (state, action) => {
 
   if (action.type === 'UPDATE_TOTAL') {
     let sum = 0;
+    let cartItemAmount = 0;
+    let totalSum = 0;
 
     state.cart.map((cartItem) => {
       sum += cartItem.amount;
+      cartItemAmount = cartItem.amount * cartItem.price;
+      totalSum += cartItemAmount;
     });
 
-    return { ...state, amount: sum };
+    return { ...state, amount: sum, total: totalSum.toFixed(2) };
   }
 
   if (action.type === 'INCREASE_AMOUNT') {

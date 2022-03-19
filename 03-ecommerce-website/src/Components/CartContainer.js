@@ -5,7 +5,7 @@ import { FaTimes } from 'react-icons/fa';
 import { useGlobalContext } from '../context';
 
 const CartContainer = () => {
-  const { cart, clearCart, cartEnvelope } = useGlobalContext();
+  const { cart, total, clearCart, cartEnvelope } = useGlobalContext();
   return (
     <section className='cart-container'>
       <div className='cart-overlay'>
@@ -28,6 +28,11 @@ const CartContainer = () => {
               </div>
             )}
           </div>
+
+          <p className='cart-items-total'>
+            Total: <span>{total}</span>
+          </p>
+
           <button className='clear-cart' onClick={() => clearCart()}>
             Clear Cart
           </button>

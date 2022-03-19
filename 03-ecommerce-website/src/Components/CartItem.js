@@ -24,7 +24,7 @@ const Cart = ({ id, image, title, price, amount }) => {
       <div className='cart-numbers'>
         <p>{price + '  x  ' + amount}</p>
         <p>|</p>
-        <span>{price * amount}</span>
+        <span>{(price * amount).toFixed(2)}</span>
       </div>
       <div className='amount'>
         <span className='decrease-amount' onClick={() => decreaseAmount(id)}>

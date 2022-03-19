@@ -22,7 +22,7 @@ const Navbar = () => {
               <FaTimes />
             </span>
             <li>
-              <a href='#'> Collections</a>
+              <a href='#'> Home </a>
             </li>
             <li>
               <a href='#'> Men</a>
