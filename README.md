@@ -1,11 +1,1 @@
-Building with React.
-Next in line to learn:
-
-
-- Redux
-- Firebase
-- NextJs
-- GraphicQL
-- React Native
-- Data Structures & Algorithms
-- Create a blog, a restaurant delivery website & an e-commerce website
+This repository is a compilation of react projects I built on my own from scratch to hone my react skills. 
